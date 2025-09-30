@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Vista previa de Encuesta con Estrellas</title>
+</head>
+<body bgcolor="#3c115e" text="#f8c513">
+  <h1>Ejemplo de Encuesta con Estrellas</h1>
+
+  <p>En esta página puedes ver el código HTML/JS para la encuesta con estrellas. Copia y pega este código en tu propio archivo <code>.html</code> para probarlo en tu navegador.</p>
+
+  <!-- Caja de texto donde mostramos el código como vista previa -->
+  <h2>Vista Previa del Código</h2>
+  <pre style="background-color:#004c98; padding:10px; border:1px solid #ccc; overflow:auto;">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Encuesta Restaurante&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Encuesta de Satisfacción&lt;/h1&gt;
+
+  &lt;!-- Entrada de correo --&gt;
+  &lt;label&gt;Correo electrónico:&lt;/label&gt;
+  &lt;input type="email" id="correo" placeholder="ejemplo@correo.com"&gt;
+  &lt;br&gt;&lt;br&gt;
+
+  &lt;!-- Calificación con estrellas (imágenes) --&gt;
+  &lt;label&gt;Califique el restaurante:&lt;/label&gt;&lt;br&gt;
+  &lt;img src="estrella_vacia.png" id="s1" onclick="calificar(1)"&gt;
+  &lt;img src="estrella_vacia.png" id="s2" onclick="calificar(2)"&gt;
+  &lt;img src="estrella_vacia.png" id="s3" onclick="calificar(3)"&gt;
+  &lt;img src="estrella_vacia.png" id="s4" onclick="calificar(4)"&gt;
+  &lt;img src="estrella_vacia.png" id="s5" onclick="calificar(5)"&gt;
+
+  &lt;h2&gt;Resultados&lt;/h2&gt;
+  &lt;ul id="listaResultados"&gt;&lt;/ul&gt;
+
+  &lt;script&gt;
+    function calificar(valor) {
+      let correoInput = document.getElementById("correo");
+      let correo = correoInput.value.trim();
+
+      if (correo === "") {
+        alert("Por favor ingrese un correo antes de calificar.");
+        return;
+      }
+
+      let li = document.createElement("li");
+      li.textContent = correo + " Calificación: " + valor + " estrella(s)";
+      document.getElementById("listaResultados").appendChild(li);
+
+      correoInput.value = "";
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+  </pre>
+
+  <!-- Enlace para descargar la imagen de la estrella -->
+  <h2>Descargar Imagen de Estrella</h2>
+  <p><a href="estrella_vacia.png" download>Haz clic aquí para descargar la estrella vacía</a></p>
+
+</body>
+</html>
